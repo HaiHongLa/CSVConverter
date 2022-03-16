@@ -9,7 +9,12 @@ const Navbar = () => {
         className={`"navbar-brand" ${classes.brandName}`}
         href="#"
       >
-        <img src={logo} alt="Logo" height={25} style={{"padding-right": "7px", "padding-bottom": "3px"}} />
+        <img
+          src={logo}
+          alt="Logo"
+          height={25}
+          style={{ "padding-right": "7px", "padding-bottom": "3px" }}
+        />
         CSV Converter
       </a>
       <button
@@ -27,13 +32,11 @@ const Navbar = () => {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item active">
-            <a className="nav-link" href="#">
+            <a
+              className="nav-link"
+              href="https://github.com/HaiHongLa/CSVConverter"
+            >
               About
-            </a>
-          </li>
-          <li className="nav-item active">
-            <a className="nav-link" href="#">
-              Help
             </a>
           </li>
         </ul>

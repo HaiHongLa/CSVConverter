@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import "./Header.css";
 
 const Header = () => {
@@ -16,8 +16,8 @@ const Header = () => {
 
   const uploadHandler = (event) => {
     if (!event.target.files[0]) {
-      setIsFilePicked(false)
-      return
+      setIsFilePicked(false);
+      return;
     }
     setSelectedFile(event.target.files[0]);
     setIsFilePicked(true);
@@ -57,7 +57,7 @@ const Header = () => {
 
       setDownloadFilename(data.filename);
       setDownloadReady(true);
-      setErrorObj({ hasError: false, errorMsg: "" })
+      setErrorObj({ hasError: false, errorMsg: "" });
     } catch (err) {
       // console.log(err.message);
       setErrorObj({ hasError: true, errorMsg: err.message });
@@ -77,13 +77,9 @@ const Header = () => {
   return (
     <div className="jumbotron">
       <h1 className="display-4">Online CSV Converter</h1>
-      <p className="lead">
-        Converts your CSV file to other file types
-      </p>
+      <p className="lead">Converts your CSV file to other file types</p>
       <hr className="my-4" />
-      <p>
-        Upload your CSV file and select your output format
-      </p>
+      <p>Upload your CSV file and select your output format</p>
       <p className="lead">
         <a
           className="btn btn-primary btn-lg"
@@ -132,7 +128,7 @@ const Header = () => {
           </button>
         </div>
       )}
-      {errorObj.hasError && <p>{errorObj.errorMsg}</p>}
+      {errorObj.hasError && <p style={{ color: "red" }}>{errorObj.errorMsg}</p>}
       {downloadReady && (
         <div>
           <p>Download is ready</p>
