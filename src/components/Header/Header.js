@@ -41,7 +41,9 @@ const Header = () => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/convert/" + selectedOutputFormat + "/",
+        "http://csvapi.pythonanywhere.com/convert/" +
+          selectedOutputFormat +
+          "/",
         {
           method: "POST",
           body: formData,
@@ -137,7 +139,9 @@ const Header = () => {
           </button>
           <a
             id="downloadLink"
-            href={"http://127.0.0.1:8000/download/" + downloadFilename}
+            href={
+              "http://csvapi.pythonanywhere.com/download/" + downloadFilename
+            }
             style={{ display: "none" }}
           />
         </div>
