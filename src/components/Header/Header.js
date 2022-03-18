@@ -41,9 +41,7 @@ const Header = () => {
 
     try {
       const response = await fetch(
-        "http://csvapi.pythonanywhere.com/convert/" +
-          selectedOutputFormat +
-          "/",
+        "http://127.0.0.1:8000/convert/" + selectedOutputFormat + "/",
         {
           method: "POST",
           body: formData,
@@ -60,9 +58,10 @@ const Header = () => {
       setDownloadFilename(data.filename);
       setDownloadReady(true);
       setErrorObj({ hasError: false, errorMsg: "" });
+
     } catch (err) {
       // console.log(err.message);
-      setErrorObj({ hasError: true, errorMsg: err.message });
+      setErrorObj({ hasError: true, errorMsg: "An error occurred when converting" });
     }
   };
 
@@ -140,7 +139,8 @@ const Header = () => {
           <a
             id="downloadLink"
             href={
-              "http://csvapi.pythonanywhere.com/download/" + downloadFilename
+              "https://csv-converter-haila.s3.us-east-2.amazonaws.com/" +
+              downloadFilename
             }
             style={{ display: "none" }}
           />
